@@ -58,4 +58,4 @@ workflows:
       - build
       - build-and-test:
         requires:
-        - build
+         - build
