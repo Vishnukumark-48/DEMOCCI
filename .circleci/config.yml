@@ -25,7 +25,7 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       - run: gradle -b build.gradle test
-#job2
+
   build-and-test:
     docker:
       - image: cimg/openjdk:8.0
@@ -50,12 +50,11 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       - run: gradle -b build.gradle test
-      
 
 workflows:
   sample:
     jobs:
       - build
       - build-and-test:
-        requires:
-          - build
+          requires:
+            - build
